@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('brackets/admin-auth::admin.auth.login');
 });
 
+//Route::get('/descifrar', 'App\Http\Controllers\Admin\CredencialesController@descifrar')->name('descifrar');
+Route::get('/descifrar', 'CredencialesController@descifrar')->name('descifrar');
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
@@ -222,6 +224,7 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/bulk-destroy',                                'CredencialesController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{credenciale}',                               'CredencialesController@update')->name('update');
             Route::delete('/{credenciale}',                             'CredencialesController@destroy')->name('destroy');
+
         });
     });
 });
@@ -268,6 +271,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/bulk-destroy',                                'ServidorController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{servidor}',                                  'ServidorController@update')->name('update');
             Route::delete('/{servidor}',                                'ServidorController@destroy')->name('destroy');
+
+
         });
     });
 });
@@ -283,6 +288,22 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/bulk-destroy',                                'TipoDebdController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{tipoDebd}',                                  'TipoDebdController@update')->name('update');
             Route::delete('/{tipoDebd}',                                'TipoDebdController@destroy')->name('destroy');
+        });
+    });
+});
+
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('verifications')->name('verifications/')->group(static function() {
+            Route::get('/',                                             'VerificationsController@index')->name('index');
+            Route::get('/create',                                       'VerificationsController@create')->name('create');
+            Route::post('/',                                            'VerificationsController@store')->name('store');
+            Route::get('/{verification}/edit',                          'VerificationsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'VerificationsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{verification}',                              'VerificationsController@update')->name('update');
+            Route::delete('/{verification}',                            'VerificationsController@destroy')->name('destroy');
         });
     });
 });
