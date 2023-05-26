@@ -64,14 +64,23 @@
   <input type="text" id="usuario" name="usuario" class="form-control custom-input" value="{{ $credenciale->usuario }}" disabled>
 </div>
 
+<form class="form-horizontal form-create" method="" action="/descifrar">
+
 <div class="form-group">
   <label for="contrasena">Contraseña:</label>
   <input type="password" id="contrasena" name="contrasena" class="form-control custom-input" value=" {{ $credenciale->contraseña }}">
+  <div class="card-footer">
+                    <button type="submit" class="btn btn-primary" :disabled="submiting">
+                        <i class="fa" :class="submiting ? 'fa-spinner' : 'fa-download'"></i>
+                        Descifrar
+                    </button>
+                </div>
 </div>
 
             </div>
         </div>
     </div>
+    </form>
 
     <div class="col-6">
         <div class="card">

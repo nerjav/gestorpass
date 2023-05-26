@@ -13,3 +13,4 @@ import './cat-informacione';
 import './tipo-debd';
 import './cat-informacione';
 import './grupo';
+import './verification';

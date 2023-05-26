@@ -83,4 +83,18 @@ class StoreCredenciale extends FormRequest
     }
 
 
+    public function descifrar(Request $request)
+    {
+        $credenciale = Credenciale::findOrFail($id);
+        $contrasena = $credenciale->contrasena;
+        $contrasena_modal = $request->input('contrasena_modal');
+
+        if ($contrasena === $contrasena_modal) {
+            return response()->json(['success' => true]);
+        } else {
+            return response()->json(['success' => false]);
+        }
+    }
+
+
 }

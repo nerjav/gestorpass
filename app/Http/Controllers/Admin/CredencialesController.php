@@ -24,6 +24,8 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+
 
 class CredencialesController extends Controller
 {
@@ -66,6 +68,9 @@ class CredencialesController extends Controller
      * @throws AuthorizationException
      * @return Factory|View
      */
+
+
+
     public function create()
     {
         $this->authorize('admin.credenciale.create');
@@ -80,6 +85,20 @@ class CredencialesController extends Controller
         return view('admin.credenciale.create',compact('estados','tipodeconexion','servidor','cat_informaciones','grupo'));
 
         //return view('admin.credenciale.create');
+    }
+
+    public function descifrar(Request $request)
+    {
+        return $request;
+        $credenciale = Credenciale::findOrFail($id);
+        $contrasena = $credenciale->contrasena;
+        $contrasena_modal = $request->input('contrasena_modal');
+
+        if ($contrasena === $contrasena_modal) {
+            return response()->json(['success' => true]);
+        } else {
+            return response()->json(['success' => false]);
+        }
     }
 
     /**

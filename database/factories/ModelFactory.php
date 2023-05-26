@@ -373,3 +373,14 @@ $factory->define(App\Models\CatInformacione::class, static function (Faker\Gener
         
     ];
 });
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Verification::class, static function (Faker\Generator $faker) {
+    return [
+        'admin_users' => $faker->randomNumber(5),
+        'password' => bcrypt($faker->password),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
