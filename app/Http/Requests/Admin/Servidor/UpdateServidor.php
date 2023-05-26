@@ -48,4 +48,17 @@ class UpdateServidor extends FormRequest
 
         return $sanitized;
     }
+
+
+    public function getTipodeconexionId()
+    {
+        return $this->get('tipodeconexion')['id'];
+    }
+
+
+    public function getGrupoId()
+    {
+        return $this->get('grupo')['id'];
+    }
+
 }
