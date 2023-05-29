@@ -13,8 +13,7 @@ class Credenciale extends Model
         'fecha',
         'servidor_id',
         'tipodeconexion_id',
-        'estados_id',
-        //'cat_informaciones_id',
+        'estado_id',
         'cat_informaciones_id',
         'grupo_id',
 
@@ -38,30 +37,30 @@ class Credenciale extends Model
 
 
 
-    public function Servidor()
+    public function servidor()
     {
         return $this->belongsTo('App\Models\Servidor');
 
     }
 
 
-    public function Grupo()
+    public function grupo()
     {
         return $this->belongsTo('App\Models\Grupo');
 
     }
 
 
-    public function Estado()
+    public function estado()
     {
-        return $this->belongsTo('App\Models\Estado','estados_id','id');
+        return $this->belongsTo('App\Models\Estado');
 
     }
 
 
     public function tipodeconexion()
     {
-        return $this->belongsTo('App\Models\Tipodeconexion','id');
+        return $this->belongsTo('App\Models\Tipodeconexion');
 
     }
 

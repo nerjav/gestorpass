@@ -31,7 +31,7 @@ class UpdateCredenciale extends FormRequest
             'enlace' => ['sometimes', 'string'],
             'servidor' => ['sometimes', ''],
             'tipodeconexion' => ['sometimes', ''],
-            'estados' => ['sometimes', ''],
+            'estado' => ['sometimes', ''],
             'cat_informaciones' => ['sometimes', ''],
             'grupo' => ['sometimes', ''],
 
@@ -54,13 +54,6 @@ class UpdateCredenciale extends FormRequest
 
 
     }
-
-
-    public function getEstadosId()
-    {
-        return $this->get('estados')['id'];
-    }
-
 
 
     public function getServidorId()
@@ -87,14 +80,8 @@ class UpdateCredenciale extends FormRequest
         return $this->get('grupo')['id'];
     }
 
-
     public function getEstadoId()
     {
-        return $this->get('estados')['id'];
+        return $this->get('estado')['id'];
     }
-
-
-
-
-
 }

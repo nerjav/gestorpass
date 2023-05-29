@@ -24,7 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('tipodeconexion_id');
             $table->foreign('tipodeconexion_id')->references('id')->on('tipodeconexion');
             $table->unsignedBigInteger('estados_id');
-            $table->foreign('estados_id')->references('id')->on('estados');
+            $table->foreign('estado_id')->references('id')->on('estados');
 
             $table->unsignedBigInteger('cat_informaciones_id');
             $table->foreign('cat_informaciones_id')->references('id')->on('cat_informaciones');

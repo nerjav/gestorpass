@@ -27,7 +27,7 @@
     <div :class="isFormLocalized ? 'col-md-4' : 'col-sm-8'">
         <div class="input-group input-group--custom">
             <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-            <datetime v-model="form.fecha" :config="datePickerConfig" v-validate="'required|date_format:yyyy-MM-dd HH:mm:ss'" class="flatpickr" :class="{'form-control-danger': errors.has('fecha'), 'form-control-success': fields.fecha && fields.fecha.valid}" id="fecha" name="fecha" placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_date') }}"></datetime>
+            <datetime v-model="form.fecha" :config="datePickerConfig"  class="flatpickr" :class="{'form-control-danger': errors.has('fecha'), 'form-control-success': fields.fecha && fields.fecha.valid}" id="fecha" name="fecha" placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_date') }}"></datetime>
         </div>
         <div v-if="errors.has('fecha')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('fecha') }}</div>
     </div>
@@ -65,19 +65,19 @@
     </div>
 </div>
 
-<div class="form-group row align-items-center" :class="{'has-danger': errors.has('estados_id'), 'has-success': fields.estados_id && fields.estados_id.valid }">
-    <label for="estados_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.credenciale.columns.estados_id') }}</label>
+<div class="form-group row align-items-center" :class="{'has-danger': errors.has('estado_id'), 'has-success': fields.estado_id && fields.estado_id.valid }">
+    <label for="estado_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.credenciale.columns.estado_id') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
 <multiselect
-            v-model="form.estados"
+            v-model="form.estado"
             :options="estados"
             :multiple="false"
             track-by="id"
             label="nombre"
             :taggable="true"
             tag-placeholder=""
-            placeholder="{{ trans('admin.detail-help.columns.estados_id') }}">
-        </multiselect>         <div v-if="errors.has('estados_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('estados_id') }}</div>
+            placeholder="">
+        </multiselect>         <div v-if="errors.has('estado_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('estado_id') }}</div>
     </div>
 </div>
 

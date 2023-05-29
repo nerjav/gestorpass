@@ -32,7 +32,7 @@ class StoreCredenciale extends FormRequest
             'fecha' => ['', 'date'],
             'servidor' => ['', ''],
             'tipodeconexion' => ['', ''],
-            'estados' => ['', ''],
+            'estado' => ['', ''],
             'grupo' => ['', ''],
 
         ];
@@ -52,13 +52,6 @@ class StoreCredenciale extends FormRequest
         return $sanitized;
     }
 
-    public function getEstadosId()
-    {
-        return $this->get('estados')['id'];
-    }
-
-
-
     public function getServidorId()
     {
         return $this->get('servidor')['id'];
@@ -67,7 +60,7 @@ class StoreCredenciale extends FormRequest
 
     public function getEstadoId()
     {
-        return $this->get('estados')['id'];
+        return $this->get('estado')['id'];
     }
 
  public function getTipodeconexionId()
@@ -81,20 +74,4 @@ class StoreCredenciale extends FormRequest
 
 
     }
-
-
-    public function descifrar(Request $request)
-    {
-        $credenciale = Credenciale::findOrFail($id);
-        $contrasena = $credenciale->contrasena;
-        $contrasena_modal = $request->input('contrasena_modal');
-
-        if ($contrasena === $contrasena_modal) {
-            return response()->json(['success' => true]);
-        } else {
-            return response()->json(['success' => false]);
-        }
-    }
-
-
 }

@@ -44,7 +44,7 @@ class CredencialesController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'usuario', 'contraseña', 'enlace', 'servidor_id', 'tipodeconexion_id', 'estados_id', 'grupo_id'],
+            ['id', 'usuario', 'contraseña', 'enlace', 'servidor_id', 'tipodeconexion_id', 'estado_id', 'grupo_id'],
 
             // set columns to searchIn
             ['id', 'usuario', 'contraseña', 'enlace']
@@ -79,8 +79,6 @@ class CredencialesController extends Controller
         $tipodeconexion = Tipodeconexion::all();
         $servidor = Servidor::all();
         $grupo = Grupo::all();
-        //$cat_informaciones = CatInformacione::all();
-        //return view('admin.credenciale.create',compact('estados','tipodeconexion','servidor','grupo'));
         $cat_informaciones = CatInformacione::all();
         return view('admin.credenciale.create',compact('estados','tipodeconexion','servidor','cat_informaciones','grupo'));
 
@@ -111,11 +109,10 @@ class CredencialesController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-        $sanitized ['estados_id']=  $request->getEstadoId();
+        $sanitized ['estado_id']=  $request->getEstadoId();
         $sanitized ['tipodeconexion_id']=  $request->getTipodeconexionId();
         $sanitized ['servidor_id']=  $request->getServidorId();
         $sanitized ['grupo_id']=  $request->getGrupoId();
-        //$sanitized ['cat_informaciones_id']=  $request->getCatInformacioneId();
         // Store the Credenciale
         $credenciale = Credenciale::create($sanitized);
 
@@ -143,7 +140,7 @@ class CredencialesController extends Controller
 
             // set columns to query
            // ['id', 'usuario', 'contraseña', 'enlace', 'servidor_id', 'tipodeconexion_id', 'estados_id', 'grupo_id'],
-            ['id', 'usuario', 'contraseña', 'enlace', 'servidor_id', 'tipodeconexion_id', 'estados_id', 'cat_informaciones_id', 'grupo_id'],
+            ['id', 'usuario', 'contraseña', 'enlace', 'servidor_id', 'tipodeconexion_id', 'estado_id', 'cat_informaciones_id', 'grupo_id'],
 
             // set columns to searchIn
             ['id', 'usuario', 'contraseña', 'enlace']
@@ -176,7 +173,7 @@ class CredencialesController extends Controller
         $tipodeconexion = Tipodeconexion::all();
         $servidor = Servidor::all();
         $grupo = Grupo::all();
-       $cat_informaciones = CatInformacione::all();
+        $cat_informaciones = CatInformacione::all();
 
 
 
@@ -201,7 +198,7 @@ class CredencialesController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-        $sanitized ['estados_id']=  $request->getEstadoId();
+        $sanitized ['estado_id']=  $request->getEstadoId();
         $sanitized ['tipodeconexion_id']=  $request->getTipodeconexionId();
 
         //$sanitized ['servidor_id']=  $request->getServidorId();

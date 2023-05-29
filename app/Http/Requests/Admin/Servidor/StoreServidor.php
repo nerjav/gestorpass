@@ -26,11 +26,11 @@ class StoreServidor extends FormRequest
     public function rules(): array
     {
         return [
-            'grupo_id' => ['required', 'string'],
+            'grupo' => ['required', ''],
             'ip' => ['required', 'string'],
             'puerto' => ['required', 'string'],
-            'tipodeconexion_id' => ['required', 'string'],
-            
+            'tipodeconexion' => ['required', ''],
+
         ];
     }
 
@@ -46,5 +46,17 @@ class StoreServidor extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getGrupoId()
+    {
+        return $this->get('grupo')['id'];
+
+
+    }
+
+    public function getTipodeconexionId()
+    {
+        return $this->get('tipodeconexion')['id'];
     }
 }

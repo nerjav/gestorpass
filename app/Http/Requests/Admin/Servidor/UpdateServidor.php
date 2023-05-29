@@ -26,10 +26,10 @@ class UpdateServidor extends FormRequest
     public function rules(): array
     {
         return [
-            'grupo_id' => ['sometimes', ''],
+            'grupo' => ['sometimes', ''],
             'ip' => ['sometimes', 'string'],
             'puerto' => ['sometimes', ''],
-            'tipodeconexion_id' => ['sometimes', ''],
+            'tipodeconexion' => ['sometimes', ''],
 
         ];
     }
@@ -47,5 +47,16 @@ class UpdateServidor extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getTipodeconexionId()
+    {
+        return $this->get('tipodeconexion')['id'];
+    }
+
+
+    public function getGrupoId()
+    {
+        return $this->get('grupo')['id'];
     }
 }

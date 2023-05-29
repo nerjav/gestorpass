@@ -9,11 +9,11 @@ Vue.component('credenciale-form', {
                 usuario:  '' ,
                 contraseña:  '' ,
                 enlace:  '' ,
-                servidor_id:  '' ,
-                tipodeconexion_id:  '' ,
-                estados_id:  '' ,
-                cat_informaciones_id:  '' ,
-                grupo_id:  '' ,
+                servidor:  '' ,
+                tipodeconexion:  '' ,
+                estado:  '' ,
+                cat_informaciones:  '' ,
+                grupo:  '' ,
 
             }
         }
