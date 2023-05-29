@@ -21,8 +21,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
-use App\Models\Tipodeconexion;
-use App\Models\Grupo;
+
 
 class ServidorController extends Controller
 {
@@ -122,18 +121,11 @@ class ServidorController extends Controller
         $this->authorize('admin.servidor.edit', $servidor);
         $tipodeconexion = Tipodeconexion::all();
         $grupo = Grupo::all();
-<<<<<<< HEAD
 
 
         return view('admin.servidor.edit', ['servidor'  => $servidor,
         'tipodeconexion'=> $tipodeconexion,
         'grupo'=> $grupo,
-=======
-
-        return view('admin.servidor.edit', [
-            'tipodeconexion'=> $tipodeconexion,
-            'grupo'=> $grupo,
->>>>>>> main
         ]);
     }
 
@@ -150,10 +142,6 @@ class ServidorController extends Controller
         $sanitized = $request->getSanitized();
         $sanitized ['tipodeconexion_id']=  $request->getTipodeconexionId();
         $sanitized ['grupo_id']=  $request->getGrupoId();
-<<<<<<< HEAD
-
-=======
->>>>>>> main
         // Update changed values Servidor
         $servidor->update($sanitized);
 
