@@ -29,7 +29,11 @@ class StoreServidor extends FormRequest
             'grupo' => ['required', ''],
             'ip' => ['required', 'string'],
             'puerto' => ['required', 'string'],
+<<<<<<< HEAD
             'tipodeconexion' => ['required', ''],
+=======
+            'tipodeconexion_id' => ['required', 'string'],
+>>>>>>> main
 
         ];
     }
@@ -47,7 +51,10 @@ class StoreServidor extends FormRequest
 
         return $sanitized;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
     public function getGrupoId()
     {
         return $this->get('grupo')['id'];
@@ -59,4 +66,8 @@ class StoreServidor extends FormRequest
     {
         return $this->get('tipodeconexion')['id'];
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 }

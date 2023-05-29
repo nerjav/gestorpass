@@ -10,8 +10,13 @@
 
         <servidor-form
             :action="'{{ url('admin/servidors') }}'"
+<<<<<<< HEAD
             :tipodeconexion="{{ $tipodeconexion->toJson() }}"
             :grupo="{{ $grupo->toJson() }}"
+=======
+             :tipodeconexion="{{$tipodeconexion->toJson() }}"
+            :grupo="{{$grupo->toJson() }}"
+>>>>>>> main
             v-cloak
             inline-template>
 

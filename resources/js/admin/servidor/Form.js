@@ -10,7 +10,11 @@ Vue.component('servidor-form', {
                 grupo:  '' ,
                 ip:  '' ,
                 puerto:  '' ,
+<<<<<<< HEAD
                 tipodeconexion:  '' ,
+=======
+                tipodeconexion_id:  '' ,
+>>>>>>> main
 
             }
         }
