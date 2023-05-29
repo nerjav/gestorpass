@@ -44,7 +44,7 @@
             label="ip"
             :taggable="true"
             tag-placeholder=""
-            placeholder="{{ trans('admin.detail-help.columns.servidor_id') }}">
+            placeholder="">
         </multiselect>          <div v-if="errors.has('servidor_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('servidor_id') }}</div>
     </div>
 </div>
@@ -60,7 +60,7 @@
             label="nombre"
             :taggable="true"
             tag-placeholder=""
-            placeholder="{{ trans('admin.detail-help.columns.tipodeconexion_id') }}">
+            placeholder="">
         </multiselect>             <div v-if="errors.has('tipodeconexion_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('tipodeconexion_id') }}</div>
     </div>
 </div>
@@ -92,7 +92,7 @@
             label="nombre"
             :taggable="true"
             tag-placeholder=""
-            placeholder="{{ trans('admin.detail-help.columns.grupo_id') }}">
+            placeholder="">
         </multiselect>         <div v-if="errors.has('grupo_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('grupo_id') }}</div>
     </div>
 </div>
