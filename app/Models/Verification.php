@@ -7,25 +7,32 @@ use Illuminate\Database\Eloquent\Model;
 class Verification extends Model
 {
     protected $fillable = [
-        'admin_users',
+        'admin_users_id',
         'password',
-    
+
     ];
-    
+
     protected $hidden = [
         'password',
-    
+
     ];
-    
+
     protected $dates = [
         'created_at',
         'updated_at',
-    
+
     ];
-    
+
     protected $appends = ['resource_url'];
+    protected $with = ['usuario'];
 
     /* ************************ ACCESSOR ************************* */
+
+    public function usuario()
+    {
+        return $this->belongsTo('App\Models\AdminUser','admin_users_id', 'id');
+
+    }
 
     public function getResourceUrlAttribute()
     {

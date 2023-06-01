@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('verifications', function (Blueprint $table) {
             $table->id();
-            $table->integer('admin_users');
+            $table->integer('admin_users_id');
+            $table->foreign('admin_users_id')->references('id')->on('admin_users');
             $table->string('password');
             $table->timestamps();
         });

@@ -25,7 +25,7 @@ class IndexVerification extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,admin_users|nullable',
+            'orderBy' => 'in:id,admin_users_id|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

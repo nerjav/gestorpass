@@ -14,3 +14,7 @@ import './tipo-debd';
 import './cat-informacione';
 import './grupo';
 import './verification';
+import './admin-user';
+import './profile-edit-profile';
+import './profile-edit-password';
+import './verification';

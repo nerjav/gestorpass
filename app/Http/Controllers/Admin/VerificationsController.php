@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\Verification\IndexVerification;
 use App\Http\Requests\Admin\Verification\StoreVerification;
 use App\Http\Requests\Admin\Verification\UpdateVerification;
 use App\Models\Verification;
+use App\Models\AdminUser;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -37,7 +38,7 @@ class VerificationsController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'admin_users'],
+            ['id', 'admin_users_id'],
 
             // set columns to searchIn
             ['id']
@@ -64,8 +65,9 @@ class VerificationsController extends Controller
     public function create()
     {
         $this->authorize('admin.verification.create');
+        $usuario=AdminUser::all();
 
-        return view('admin.verification.create');
+        return view('admin.verification.create', compact('usuario'));
     }
 
     /**
@@ -74,13 +76,21 @@ class VerificationsController extends Controller
      * @param StoreVerification $request
      * @return array|RedirectResponse|Redirector
      */
+
     public function store(StoreVerification $request)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized ['admin_users_id']=  $request->getUsuarioId();
 
         // Store the Verification
-        $verification = Verification::create($sanitized);
+        //$verification = Verification::create($sanitized);
+
+        $verification = Verification::create([
+            'admin_users_id' => $sanitized['admin_users_id'],
+            'password' => bcrypt($sanitized['password']),
+
+        ]);
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/verifications'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
@@ -114,9 +124,11 @@ class VerificationsController extends Controller
     {
         $this->authorize('admin.verification.edit', $verification);
 
+        $usuario=AdminUser::all();
 
         return view('admin.verification.edit', [
             'verification' => $verification,
+            'usuario' => $usuario,
         ]);
     }
 
@@ -130,7 +142,8 @@ class VerificationsController extends Controller
     public function update(UpdateVerification $request, Verification $verification)
     {
         // Sanitize input
-        $sanitized = $request->getSanitized();
+        return $sanitized = $request->getSanitized();
+        $sanitized ['admin_users_id']=  $request->getUsuarioId();
 
         // Update changed values Verification
         $verification->update($sanitized);
