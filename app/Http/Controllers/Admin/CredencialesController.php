@@ -109,8 +109,8 @@ public function verificarContrasena(Request $request)
         if (Hash::check($contrasena, $encriptada)) {
             // si la contraseña es correcta, obtener la contraseña de la tabla correspondiente
             $credencial;
-            $credenciale=Credenciale::where('id', $credencial)->get();
-            $var=decrypt($credenciale[0]->contraseña);
+            $credenciale=Credenciale::where('id', $credencial)->first();
+            $var=decrypt($credenciale->contraseña);
             $contrasenaUsuario = $var;
 
 
