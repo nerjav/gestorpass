@@ -26,7 +26,7 @@ class UpdateVerification extends FormRequest
     public function rules(): array
     {
         return [
-            'admin_users_id' => ['sometimes', ''],
+            'admin_users' => ['sometimes', ''],
             'password' => ['sometimes', 'confirmed', 'min:7', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9]).*$/', 'string'],
 
         ];
@@ -49,6 +49,6 @@ class UpdateVerification extends FormRequest
 
     public function getUsuarioId()
     {
-        return $this->get('admin_users_id')['id'];
+        return $this->get('admin_users')['id'];
     }
 }

@@ -142,7 +142,7 @@ class VerificationsController extends Controller
     public function update(UpdateVerification $request, Verification $verification)
     {
         // Sanitize input
-        return $sanitized = $request->getSanitized();
+        $sanitized = $request->getSanitized();
         $sanitized ['admin_users_id']=  $request->getUsuarioId();
 
         // Update changed values Verification

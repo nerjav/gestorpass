@@ -13,17 +13,30 @@ class Servidor extends Model
         'ip',
         'puerto',
         'tipodeconexion_id',
-    
+
     ];
-    
-    
+
+
     protected $dates = [
         'created_at',
         'updated_at',
-    
+
     ];
-    
+
     protected $appends = ['resource_url'];
+    protected $with = ['grupo', 'tipodeconexion'];
+
+    public function grupo()
+    {
+        return $this->belongsTo('App\Models\Grupo');
+
+    }
+
+    public function tipodeconexion()
+    {
+        return $this->belongsTo('App\Models\Tipodeconexion');
+
+    }
 
     /* ************************ ACCESSOR ************************* */
 

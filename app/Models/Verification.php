@@ -34,6 +34,7 @@ class Verification extends Model
 
     }
 
+
     public function getResourceUrlAttribute()
     {
         return url('/admin/verifications/'.$this->getKey());

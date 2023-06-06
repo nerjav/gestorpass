@@ -1,7 +1,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('grupo_id'), 'has-success': fields.grupo_id && fields.grupo_id.valid }">
     <label for="grupo_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.servidor.columns.grupo_id') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-<multiselect
+            <multiselect
             v-model="form.grupo"
             :options="grupo"
             :multiple="false"
@@ -9,8 +9,8 @@
             label="nombre"
             :taggable="true"
             tag-placeholder=""
-            placeholder="{{ trans('admin.detail-help.columns.grupo_id') }}">
-        </multiselect>           <div v-if="errors.has('grupo_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('grupo_id') }}</div>
+            placeholder="">
+        </multiselect>         <div v-if="errors.has('grupo_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('grupo_id') }}</div>
     </div>
 </div>
 

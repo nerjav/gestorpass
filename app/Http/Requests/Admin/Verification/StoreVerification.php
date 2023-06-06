@@ -61,6 +61,6 @@ class StoreVerification extends FormRequest
 
     public function getUsuarioId()
     {
-        return $this->get('admin_users_id')['id'];
+        return $this->get('admin_users')['id'];
     }
 }

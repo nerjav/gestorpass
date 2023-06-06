@@ -49,10 +49,6 @@ class UpdateServidor extends FormRequest
         return $sanitized;
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> main
     public function getTipodeconexionId()
     {
         return $this->get('tipodeconexion')['id'];
@@ -62,9 +58,7 @@ class UpdateServidor extends FormRequest
     public function getGrupoId()
     {
         return $this->get('grupo')['id'];
-    }
-<<<<<<< HEAD
-=======
 
->>>>>>> main
+
+    }
 }
