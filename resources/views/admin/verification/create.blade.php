@@ -10,7 +10,7 @@
 
         <verification-form
             :action="'{{ url('admin/verifications') }}'"
-            :usuario="{{$usuario->toJson() }}"
+            :user="{{$user->toJson() }}"
             v-cloak
             inline-template>
 

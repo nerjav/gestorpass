@@ -75,7 +75,7 @@
                                         </td>
 
                                     <td>@{{ item.id }}</td>
-                                        <td>@{{ item.usuario.full_name }}</td>
+                                        <td>@{{ item.user.full_name }}</td>
 
                                         <td>
                                             <div class="row no-gutters">

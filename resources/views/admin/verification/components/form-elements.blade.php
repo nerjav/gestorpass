@@ -3,15 +3,16 @@
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         {{-- <input type="text" v-model="form.admin_users_id" class="form-control" :class="{'form-control-danger': errors.has('admin_users_id'), 'form-control-success': fields.admin_users_id && fields.admin_users_id.valid}" id="admin_users_id" name="admin_users_id" placeholder="{{ trans('admin.verification.columns.admin_users_id') }}"> --}}
         <multiselect
-        v-model="form.admin_users_id"
-        :options="usuario"
-        :multiple="false"
-        track-by="id"
-        label="full_name"
-        :taggable="true"
-        tag-placeholder=""
-        placeholder="">
-    </multiselect>
+    v-model="form.admin_users_id"
+    :options="user"
+    :multiple="false"
+    track-by="id"
+    label="full_name"
+    :taggable="true"
+    tag-placeholder=""
+    placeholder=""
+    :value="form.admin_users_id"
+></multiselect>
         <div v-if="errors.has('admin_users_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('admin_users_id') }}</div>
     </div>
 </div>

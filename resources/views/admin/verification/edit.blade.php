@@ -10,7 +10,7 @@
             <verification-form
                 :action="'{{ $verification->resource_url }}'"
                 :data="{{ $verification->toJson() }}"
-                :usuario="{{$usuario->toJson() }}"
+                :user="{{$user->toJson() }}"
                 v-cloak
                 inline-template>
 
@@ -18,11 +18,14 @@
 
 
                     <div class="card-header">
-                        <i class="fa fa-pencil"></i> {{ trans('admin.verification.actions.edit', ['name' => $verification->id]) }}
+                        <i class="fa fa-pencil"></i> {{$verification->user->full_name}}
+
+
+
                     </div>
 
                     <div class="card-body">
-                        @include('admin.verification.components.form-elements')
+                        @include('admin.verification.components.form-elementsE')
                     </div>
 
 

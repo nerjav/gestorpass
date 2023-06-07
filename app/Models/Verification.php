@@ -24,11 +24,11 @@ class Verification extends Model
     ];
 
     protected $appends = ['resource_url'];
-    protected $with = ['usuario'];
+    protected $with = ['user'];
 
     /* ************************ ACCESSOR ************************* */
 
-    public function usuario()
+    public function user()
     {
         return $this->belongsTo('App\Models\AdminUser','admin_users_id', 'id');
 

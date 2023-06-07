@@ -65,9 +65,9 @@ class VerificationsController extends Controller
     public function create()
     {
         $this->authorize('admin.verification.create');
-        $usuario=AdminUser::all();
+        $user=AdminUser::all();
 
-        return view('admin.verification.create', compact('usuario'));
+        return view('admin.verification.create', compact('user'));
     }
 
     /**
@@ -124,11 +124,11 @@ class VerificationsController extends Controller
     {
         $this->authorize('admin.verification.edit', $verification);
 
-        $usuario=AdminUser::all();
+        $user=AdminUser::all();
 
         return view('admin.verification.edit', [
             'verification' => $verification,
-            'usuario' => $usuario,
+            'user' => $user,
         ]);
     }
 
@@ -140,23 +140,27 @@ class VerificationsController extends Controller
      * @return array|RedirectResponse|Redirector
      */
     public function update(UpdateVerification $request, Verification $verification)
-    {
-        // Sanitize input
-        $sanitized = $request->getSanitized();
-        $sanitized ['admin_users_id']=  $request->getUsuarioId();
+{
+    // Sanitize input
+    $sanitized = $request->getSanitized();
 
-        // Update changed values Verification
-        $verification->update($sanitized);
-
-        if ($request->ajax()) {
-            return [
-                'redirect' => url('admin/verifications'),
-                'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
-            ];
-        }
-
-        return redirect('admin/verifications');
+    // Encriptar la contraseña si se ha proporcionado
+    if (isset($sanitized['password'])) {
+        $sanitized['password'] = bcrypt($sanitized['password']);
     }
+
+    // Update changed values Verification
+    $verification->update($sanitized);
+
+    if ($request->ajax()) {
+        return [
+            'redirect' => url('admin/verifications'),
+            'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
+        ];
+    }
+
+    return redirect('admin/verifications');
+}
 
     /**
      * Remove the specified resource from storage.
