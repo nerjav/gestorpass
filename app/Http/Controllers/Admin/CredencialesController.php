@@ -89,6 +89,21 @@ class CredencialesController extends Controller
 
     }
 
+    // public function usuario()
+    // {
+    //     $x = "Probando";
+
+    //     return view('brackets/admin-auth::admin.homepage.index', compact('x'));
+
+
+    // }
+
+    public function usuario()
+    {
+        $this->authorize('admin.credenciale.create');
+        $userCount= AdminUser::count();
+        return view('brackets/admin-auth::admin.homepage.index', compact('userCount'));
+    }
 
 public function verificarContrasena(Request $request)
 {

@@ -224,6 +224,7 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/bulk-destroy',                                'CredencialesController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{credenciale}',                               'CredencialesController@update')->name('update');
             Route::delete('/{credenciale}',                             'CredencialesController@destroy')->name('destroy');
+            Route::get('/usuario',                                      'CredencialesController@usuario')->name('usuario');
 
         });
     });
